@@ -1,5 +1,5 @@
 AI - Unibo 2014
-=================
+===============
 
 Implementing 2 metaheuristic algorithms to solve the [assignment problem](http://en.wikipedia.org/wiki/Assignment_problem).
 The metaheuristic used are:
