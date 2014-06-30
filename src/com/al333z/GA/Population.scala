@@ -2,7 +2,7 @@ package com.al333z.GA
 
 import scala.util.Random
 
-class Population(val populationSize: Int, val numberOfGenes: Int, costs: Seq[Array[Int]]) {
+class Population(val populationSize: Int, val numberOfGenes: Int, costs: Array[Array[Int]]) {
 
   private val rand = new Random
   var totalFitness = 0.0

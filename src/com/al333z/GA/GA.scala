@@ -12,17 +12,17 @@ object GA extends App {
       val instanceOpt = a.drop(instanceName.length()).dropWhile((_ == ' '))
       (instanceName, instanceOpt)
   }
-
-//  optLines.foreach {
-//    case (name, opt) => println("name: " + name + "\t\topt: " + opt)
-//  }
-
   optSource.close()
 
+  //  optLines.foreach {
+  //    case (name, opt) => println("name: " + name + "\t\topt: " + opt)
+  //  }
+
   //TODO launch all instances, not only the first one ;)
+  val currentInstance = 0
 
   // parsing input file to an array of numbers
-  val input = "instances/" + optLines(0)._1 + ".txt"
+  val input = "instances/" + optLines(currentInstance)._1 + ".txt"
   val source = scala.io.Source.fromFile(input)
   val lines = source.getLines.mkString("\n").split(Array(' ', '\n')).
     filter(_ != "").map(Integer.parseInt(_))
@@ -40,31 +40,34 @@ object GA extends App {
     costPerItem: Array[Int] = costs.drop(start * n).take(n)
   } yield costPerItem
 
-//  costsTable.foreach(ci => println(ci.mkString("\t")))
+  //  costsTable.foreach(ci => println(ci.mkString("\t")))
 
   val rand = new Random
 
   // init initial population  
-  val populationSize: Int = 20 // population size
-//  val maxIterations: Int = 2000 // max number of iterations
-  val maxIterations: Int = 20000 // max number of iterations
-  
-//  val mutationRate: Double = 0.05 // probability of mutation
-//  val crossoverRate: Double = 0.7 // probability of crossover
+  val populationSize: Int = 2 // population size
+  //  val maxIterations: Int = 2000 // max number of iterations
+  val maxIterations: Int = 200 // max number of iterations
+
+  //  val mutationRate: Double = 0.05 // probability of mutation
+  //  val crossoverRate: Double = 0.7 // probability of crossover
   val mutationRate: Double = 1 // probability of mutation
   val crossoverRate: Double = 1 // probability of crossover
-  
+
   // init initial population
-  val pop = new Population(populationSize, n, costsTable)
+  val pop = new Population(populationSize, n, costsTable.toArray)
   val newPop = new Array[Individual](populationSize)
   var indiv = new Array[Individual](2)
 
+  val optIndividual = new Individual(n, costsTable.toArray)
+  optIndividual.optIndividual
+
   // current population
-  //TODO change index of optLines..
-  print("Instance = " + optLines(0)._1)
-  print("\tTotal Fitness = " + pop.totalFitness)
-  print("\tOpt = " + optLines(0)._2)
-  println("\tInitial Best Fitness = " + pop.findBestIndividual.fitness)
+  print("Instance = " + optLines(currentInstance)._1)
+  print("\tTotal fitness = " + pop.totalFitness)
+  print("\tOpt = " + optLines(currentInstance)._2)
+  print("\tOpt individual fitness = " + optIndividual.evaluate)
+  println("\tFitness of initial population= " + pop.findBestIndividual.fitness)
 
   // main loop
   var count = 0
@@ -106,6 +109,5 @@ object GA extends App {
   // best indiv
   val bestIndiv = pop.findBestIndividual
   println("Completed with Best Fitness = " + pop.findBestIndividual.fitness)
-
 
 }
