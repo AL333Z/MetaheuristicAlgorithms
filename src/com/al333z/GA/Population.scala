@@ -1,19 +1,21 @@
 package com.al333z.GA
 
 import scala.util.Random
+import com.al333z.general.Problem
 
-class Population(val populationSize: Int, val numberOfGenes: Int, costs: Array[Array[Int]]) {
+class Population(val problem: Problem, val populationSize: Int) {
 
   private val rand = new Random
+  private val numberOfGenes = problem.numOfCities
+  private val cities = problem.cities
+
   var totalFitness = 0.0
   var population = new Array[Individual](populationSize)
 
-  //TODO put next in constructor?
-
   // init population
-  (0 until populationSize).foreach { i: Int =>
-    population(i) = new Individual(numberOfGenes, costs)
-    population(i).randGenes
+  for (i <- 0 until populationSize) {
+    population(i) = new Individual(problem)
+    population(i).init
   }
 
   // evaluate current population
@@ -44,7 +46,7 @@ class Population(val populationSize: Int, val numberOfGenes: Int, costs: Array[A
     var currentMin = 1.0
     var currentVal = 0
 
-    (0 until populationSize).foreach { idx =>
+    for (idx <- 0 until populationSize) {
       currentVal = population(idx).fitness
       if (currentMax < currentMin) {
         currentMax = currentVal
@@ -64,7 +66,7 @@ class Population(val populationSize: Int, val numberOfGenes: Int, costs: Array[A
       }
     }
 
-    population(idxMin)      // minimization
-//    population(idxMax) // maximization
+    population(idxMin) // minimization
+    //    population(idxMax) // maximization
   }
 }
