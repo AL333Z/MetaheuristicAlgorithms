@@ -61,7 +61,7 @@ class AntColony(problem: Problem, solution: Solution, numOfAnts: Int,
       if (bestSolutionEver == null ||
         bestAnt.tourLength < bestSolutionEver.tourLength) {
         bestSolutionEver = bestAnt
-        System.out.println("Best tour so far: " + bestSolutionEver.tourLength)
+//        println("Best tour so far: " + bestSolutionEver.tourLength)
       }
 
       ants = new LinkedList[Ant]

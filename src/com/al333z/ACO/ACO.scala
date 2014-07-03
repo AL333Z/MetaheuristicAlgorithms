@@ -10,7 +10,7 @@ object ACO extends Main {
 
     // generate a initial solution, used only to initialize track
     val initialSolution = NearestNeighbor.getSolution(problem, 1)
-    initialSolution.printSolution
+//    initialSolution.printSolution
 
     // parameters
     val numOfAnts = 10

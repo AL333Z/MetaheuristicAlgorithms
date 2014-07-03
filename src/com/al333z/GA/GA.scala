@@ -10,10 +10,10 @@ object GA extends Main {
     val rand = new Random
 
     val initialSolution = NearestNeighbor.getSolution(problem, 0)
-    initialSolution.printSolution
+//    initialSolution.printSolution
 
     // parameters
-    val populationSize: Int = 10 // population size
+    val populationSize: Int = 20 // population size
     val maxIter: Int = 100 // max number of iterations
     val mutationRate: Double = 0.05 // probability of mutation
     val crossoverRate: Double = 0.7 // probability of crossover
