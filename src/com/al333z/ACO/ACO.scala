@@ -7,11 +7,10 @@ import com.al333z.general.NearestNeighbor
 object ACO extends Main {
 
   override def mainLoop = {
-    
+
     // generate a initial solution, used only to initialize track
     val initialSolution = NearestNeighbor.getSolution(problem, 1)
     initialSolution.printSolution
-    println(initialSolution.path.map(_.id).mkString(" "))
 
     // parameters
     val numOfAnts = 10

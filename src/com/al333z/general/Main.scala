@@ -48,7 +48,6 @@ trait Main extends App {
 
   // let it know each city how far is it to each other
   problem.updateDistances
-  //  problem.printCoordinates
 
   // launch computation implemented by subclasses
   mainLoop

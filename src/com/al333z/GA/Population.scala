@@ -9,7 +9,6 @@ class Population(val problem: Problem, val populationSize: Int) {
   private val numberOfGenes = problem.numOfCities
   private val cities = problem.cities
 
-  var totalFitness = 0.0
   var population = new Array[Individual](populationSize)
 
   // init population
@@ -21,15 +20,10 @@ class Population(val problem: Problem, val populationSize: Int) {
   // evaluate current population
   evaluate
 
-  def evaluate: Double = {
-    totalFitness = population.foldLeft(0) { (partialSum: Int, individual: Individual) =>
-      partialSum + individual.evaluate
-    }
-    totalFitness
-  }
+  def evaluate = population.foreach(_.evaluate)
 
   def rouletteWheelSelection: Individual = {
-    var randNum = rand.nextDouble * totalFitness
+    var randNum = rand.nextDouble
     var idx = 0
     while (idx < populationSize && randNum > 0) {
       randNum -= population(idx).fitness
