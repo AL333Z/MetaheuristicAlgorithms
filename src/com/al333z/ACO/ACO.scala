@@ -10,7 +10,7 @@ object ACO extends Main {
 
     // generate a initial solution, used only to initialize track
     val initialSolution = NearestNeighbor.getSolution(problem, 1)
-//    initialSolution.printSolution
+    //    initialSolution.printSolution
 
     // parameters
     val numOfAnts = 10
@@ -18,7 +18,7 @@ object ACO extends Main {
     val beta = 2 // track vs attr.
     val numOfCities = problem.numOfCities
     val tau0 = 1.0 / (initialSolution.tourLength * numOfCities) // initial track
-    val ro = 0.1d // coef. of evaporation
+    val ro = 0.5d // coef. of evaporation
     val maxIter = 100 // end condition
 
     // compute solution

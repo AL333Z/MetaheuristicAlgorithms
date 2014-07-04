@@ -25,7 +25,9 @@ class AntColony(problem: Problem, solution: Solution, numOfAnts: Int,
   def optimize: Solution = {
     initTaus()
     var iter = 0
-    while (iter < maxtIter &&
+
+    val t0 = System.nanoTime()
+    while (iter < maxtIter && (System.nanoTime() - t0) / 60000000000l < 2 &&
       (bestSolutionEver == null || bestSolutionEver.tourLength > problem.opt)) {
 
       //add numOfAnts new ants
@@ -61,7 +63,7 @@ class AntColony(problem: Problem, solution: Solution, numOfAnts: Int,
       if (bestSolutionEver == null ||
         bestAnt.tourLength < bestSolutionEver.tourLength) {
         bestSolutionEver = bestAnt
-//        println("Best tour so far: " + bestSolutionEver.tourLength)
+        //        println("Best tour so far: " + bestSolutionEver.tourLength)
       }
 
       ants = new LinkedList[Ant]
