@@ -13,7 +13,7 @@ object ACO extends Main {
     //    initialSolution.printSolution
 
     // parameters
-    val numOfAnts = 10
+    val numOfAnts = 20
     val alpha = 0.1d // attr. vs track
     val beta = 2 // track vs attr.
     val numOfCities = problem.numOfCities
@@ -22,7 +22,7 @@ object ACO extends Main {
     val maxIter = 100 // end condition
 
     // compute solution
-    val colony = new AntColony(problem, initialSolution, numOfAnts, problemName,
+    val colony = new AntColony(problem, numOfAnts, problemName,
       beta, alpha, ro, tau0, maxIter)
     val sol = colony.optimize
     sol.printSolution

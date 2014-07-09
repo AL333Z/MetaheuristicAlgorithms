@@ -8,13 +8,14 @@ import scala.collection.mutable.LinkedList
  * An AntColony coordinates all the ants, and stops the algorithm if the optimal
  * solution is found. All the variables of the ant colony system are set here.
  */
-class AntColony(problem: Problem, solution: Solution, numOfAnts: Int,
+class AntColony(problem: Problem, numOfAnts: Int,
   title: String, val beta: Int, val alpha: Double, val ro: Double,
   val tau0: Double, val maxtIter: Int) {
 
   val numOfCities = problem.numOfCities
   var bestSolutionEver: Ant = null
-  var pheromone = (new Array[Array[Double]](numOfCities)).map(_ => new Array[Double](numOfCities))
+  var pheromone = (new Array[Array[Double]](numOfCities)).
+    map(_ => new Array[Double](numOfCities))
   val cities = problem.cities
   private var ants = new LinkedList[Ant]
 

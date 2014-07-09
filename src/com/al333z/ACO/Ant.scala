@@ -41,7 +41,8 @@ class Ant extends Solution {
   }
 
   private def localUpdate(current: City, city: City) = {
-    val newTau = (1 - colony.ro) * getTau(current, city) + colony.ro * colony.tau0
+    val newTau = (1 - colony.ro) * getTau(current, city) +
+      colony.ro * colony.tau0
     taus(current.id - 1)(city.id - 1) = newTau
     taus(city.id - 1)(current.id - 1) = newTau
   }
@@ -49,9 +50,10 @@ class Ant extends Solution {
   def nextCity: City = {
     var max: City = citiesToVisit(0)
     var last = -1.0
-   
+
     citiesToVisit.foreach { c =>
-      val tmp = (getTau(path.last, c) * Math.pow(getEta(path.last, c), colony.beta)).toDouble
+      val tmp = (getTau(path.last, c) *
+        Math.pow(getEta(path.last, c), colony.beta)).toDouble
       if (tmp > last) {
         last = tmp
         max = c
