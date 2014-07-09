@@ -9,13 +9,10 @@ object GA extends Main {
   override def mainLoop = {
     val rand = new Random
 
-    val initialSolution = NearestNeighbor.getSolution(problem, 0)
-    //    initialSolution.printSolution
-
     // parameters
     val populationSize: Int = 20 // population size
     val maxIter: Int = 100 // max number of iterations
-    val mutationRate: Double = 0.05 // probability of mutation
+    val mutationRate: Double = 0.01 // probability of mutation
     val crossoverRate: Double = 0.7 // probability of crossover
 
     // initial population

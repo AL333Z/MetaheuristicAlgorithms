@@ -9,7 +9,7 @@ class Solution {
 
   def printSolution = {
     println("Completed with tour lenght: " + tourLength)
-    print("Solution: ")
+    println("Solution: ")
     println(path.map(_.id).mkString(" -> "))
   }
 }

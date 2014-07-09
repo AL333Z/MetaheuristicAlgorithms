@@ -80,6 +80,25 @@ class Individual extends Solution {
     genes = NearestNeighbor.getSolution(problem, rand.nextInt(numberOfGenes)).path.toArray
   }
 
+  def initRandom = {
+
+    // helper function to remove an element in a list
+    def dropIndex[T](list: List[T], idx: Int): List[T] =
+      list.zipWithIndex.filter(_._2 != idx).map(_._1)
+
+    // helper function to randomly assign items
+    def randomAssignment(notAssigned: Array[City], assigned: Array[City]): Array[City] = notAssigned match {
+      case Array() => assigned
+      case arr => {
+        val elemIdx = rand.nextInt(arr.length)
+        val newNotAssigned = dropIndex(arr.toList, elemIdx).toArray
+        val newAssigned = assigned :+ notAssigned(elemIdx)
+        randomAssignment(newNotAssigned, newAssigned)
+      }
+    }
+    genes = randomAssignment(problem.cities.toArray, Array())
+  }
+
   def mutate = {
     val index = rand.nextInt(genes.length)
     val index2 = rand.nextInt(genes.length)

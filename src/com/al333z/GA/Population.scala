@@ -11,10 +11,14 @@ class Population(val problem: Problem, val populationSize: Int) {
 
   var population = new Array[Individual](populationSize)
 
-  // init population
-  for (i <- 0 until populationSize) {
+  // init population with one NN individual
+  population(0) = new Individual(problem)
+  population(0).init
+
+  // and other random individual
+  for (i <- 1 until populationSize) {
     population(i) = new Individual(problem)
-    population(i).init
+    population(i).initRandom
   }
 
   // evaluate current population
