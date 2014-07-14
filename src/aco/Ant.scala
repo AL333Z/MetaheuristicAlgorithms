@@ -1,8 +1,8 @@
-package com.al333z.ACO
+package aco
 
-import com.al333z.general.Solution
+import general.Solution
 import scala.util.Random
-import com.al333z.general.City
+import general.City
 
 class Ant extends Solution {
 

@@ -1,10 +1,10 @@
-package com.al333z.GA
+package ga
 
 import scala.util.Random
-import com.al333z.general.Solution
-import com.al333z.general.NearestNeighbor
-import com.al333z.general.Problem
-import com.al333z.general.City
+import general.Solution
+import general.NearestNeighbor
+import general.Problem
+import general.City
 import java.util.Collections
 import scala.collection.JavaConverters._
 import scala.util.control.Breaks._

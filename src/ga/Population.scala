@@ -1,7 +1,7 @@
-package com.al333z.GA
+package ga
 
 import scala.util.Random
-import com.al333z.general.Problem
+import general.Problem
 
 class Population(val problem: Problem, val populationSize: Int) {
 

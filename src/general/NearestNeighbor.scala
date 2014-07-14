@@ -1,4 +1,4 @@
-package com.al333z.general
+package general
 
 object NearestNeighbor {
   def getSolution(problem: Problem, starting: Int): Solution = {

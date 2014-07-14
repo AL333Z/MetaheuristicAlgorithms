@@ -1,4 +1,4 @@
-package com.al333z.general
+package general
 
 /**
  * A solution contains a list of cities (a path), and a tour length (cost).

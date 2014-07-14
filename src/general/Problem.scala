@@ -1,4 +1,4 @@
-package com.al333z.general
+package general
 
 /**
  * A Problem contains all the cities, the number of cities, a name and the

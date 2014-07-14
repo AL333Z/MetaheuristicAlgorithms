@@ -1,4 +1,4 @@
-package com.al333z.general
+package general
 
 import java.io.File
 import java.util.regex.Pattern

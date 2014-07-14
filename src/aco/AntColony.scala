@@ -1,7 +1,7 @@
-package com.al333z.ACO
+package aco
 
-import com.al333z.general.Problem
-import com.al333z.general.Solution
+import general.Problem
+import general.Solution
 import scala.collection.mutable.LinkedList
 
 /**

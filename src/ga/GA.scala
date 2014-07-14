@@ -1,8 +1,8 @@
-package com.al333z.GA
+package ga
 
 import scala.util.Random
-import com.al333z.general.Main
-import com.al333z.general.NearestNeighbor
+import general.Main
+import general.NearestNeighbor
 
 object GA extends Main {
 

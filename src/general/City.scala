@@ -1,4 +1,4 @@
-package com.al333z.general
+package general
 
 /**
  * A city is modeled with an id, coordinates (x,y) and an array
